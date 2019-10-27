@@ -2,19 +2,19 @@
 
 ![ScreenShot](https://github.com/geekwisdom/gwClock/blob/master/assets/clock_sample.png?raw=true)
 
-#Introducton
+## Introducton
 
 In this sample I will be demonstrating some of the idea of creating an application/gadget which you can display on your screen using Visual Basic .NET.  In previous windows programming languages, many of these techniques required special Windows API calls, but it is far easier now to create your own simple gadgets that you can easily place on your desktop using existing .NET components and managed code.
 
-#Background
+## Background
 
-Recently a collegue was playing around with transparency in VB.NET, and he happened to show me his transparent clock application, which brought me back to the old days of [Windows 'desktop gadgets'](https://en.wikipedia.org/wiki/Microsoft_Gadgets). What I like most about his demonstration was the use of the matrix background, which was just too cool for [my geeky self to pass](https://www.youtube.com/watch?v=MeabQjpkMFY) up.
+Recently a colleague was playing around with transparency in VB.NET, and he happened to show me his transparent clock application, which brought me back to the old days of [Windows 'desktop gadgets'](https://en.wikipedia.org/wiki/Microsoft_Gadgets). What I like most about his demonstration was the use of the matrix background, which was just too cool for [my geeky self to pass](https://www.youtube.com/watch?v=MeabQjpkMFY) up.
 
-#Design
+## Design
 
-The overall goal is to create a simple window which will display the time in digitial format, we need a way to be able to easily re-size and place the clock in an area of our screen to our liking. We also want to be able to adjust the clock so that we can still see information behind the clock for a nice transparency. Clicking the the clock time, we would like the title bar/borders to be hidden, and upon saving and re-opening we would like the clock to remember its size, position and transparency.
+The overall goal is to create a simple window which will display the time in digital format, we need a way to be able to easily re-size and place the clock in an area of our screen to our liking. We also want to be able to adjust the clock so that we can still see information behind the clock for a nice transparency. Clicking the clock time, we would like the title bar/borders to be hidden, and upon saving and re-opening we would like the clock to remember its size, position and transparency.
 
-#Transparency
+## Transparency
 
 Transparency is a technology that has been around for a long time. Also called ["Chromakey"](https://en.wikipedia.org/wiki/Chroma_key) or GreenScreen. The idea is to have software replace a specific color (eg: Green) with the a different background of your choosing.  In Windows Forms, this basically works the same way, by setting the transparency key property to a specific color, all items that are that color will be replaced by the background.
 
@@ -23,7 +23,7 @@ Transparency is a technology that has been around for a long time. Also called [
    
    Any items that are black will effectivly be replaced by the background making the item transparent.
    
-  The degree of replacement is controled by the Opacity Value. A value beteen 0 and 1 where (1 = Fully Opaque, and 0 = Fully Transparent).  To allow the user the ability to control the level of transparency I use a simple trackbar, and as the trackbar changes so does the opacity
+ The degree of replacement is controlled by the Opacity Value. A value between 0 and 1 where (1 = Fully Opaque, and 0 = Fully Transparent).  To allow the user the ability to control the level of transparency I use a simple trackbar, and as the trackbar changes so does the opacity.
   
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
             ' cls.TrackBar1_Scroll(Me, sender)
@@ -33,7 +33,7 @@ Transparency is a technology that has been around for a long time. Also called [
 
 *Tip*:  The minimim trackbar value if allowed at "0" means that the user can mike the entire screen fully transparent. this *includes* the trackbar making it very difficult to adjust what you cannot see. So let's set a minimum of 20 or so to prevent this from happening.
 
-#Borders and Title
+## Borders and Title
 
 The make it really look 'gadget' like we want to hide the borders around it. In .NET 4.5 and greater this is very easy
 
@@ -45,7 +45,7 @@ The make it really look 'gadget' like we want to hide the borders around it. In 
         End If
       End Sub
 
-This intoduces a bit of a problem though because without borders, we cannot move or resize the screen, and putting a button on the screen will look a little strange in our 'gadget view'. To solve this we will add the ability to toggle the borders on and off when the user clicks on the clock. We use a 'clickstate' global to the form to toggle the transparency and borders on and off
+This introduces a bit of a problem though because without borders, we cannot move or resize the screen, and putting a button on the screen will look a little strange in our 'gadget view'. To solve this we will add the ability to toggle the borders on and off when the user clicks on the clock. We use a 'clickstate' global to the form to toggle the transparency and borders on and off
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
         SetTrans()
