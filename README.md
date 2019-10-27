@@ -21,12 +21,11 @@ Transparency is a technology that has been around for a long time. Also called [
     theform.BackColor = Color.Black
     theform.TransparencyKey = Color.Black
    
-   Any items that are black will effectivly be replaced by the background making the item transparent.
+ Any items that are black will effectivly be replaced by the background making the item transparent.
    
  The degree of replacement is controlled by the Opacity Value. A value between 0 and 1 where (1 = Fully Opaque, and 0 = Fully Transparent).  To allow the user the ability to control the level of transparency I use a simple trackbar, and as the trackbar changes so does the opacity.
   
     Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
-            ' cls.TrackBar1_Scroll(Me, sender)
             Me.Opacity = sender.Value / 100 '+ 0.01
             Me.Text = Me.Opacity
     End Sub
@@ -51,7 +50,7 @@ This introduces a bit of a problem though because without borders, we cannot mov
         SetTrans()
     End Sub
 
-Private Sub SetTrans()
+    Private Sub SetTrans()
         If ClickState Then
             'TransparentControl.toggle_transparent(Me, False)
             TransparentControl.toggle_borders(Me, False)
@@ -78,14 +77,13 @@ Note as well here that we are using *Me.TopMost* to keep our gadget on top of ot
 
 Finally we want to save the size and position of our gadget when closing and re-opening.  To do this we convert the position by saving the TOP and LEFT properties of the form in a point format (X,Y) and the size by storing the width and height. We also store the transparency value and last clickstate
 
-  Private Sub Form1_Close(sender As Object, e As EventArgs) Handles MyBase.FormClosed
+    Private Sub Form1_Close(sender As Object, e As EventArgs) Handles MyBase.FormClosed
         If Me.WindowState = FormWindowState.Normal Then
             WriteSetting("ClockLocation", Me.Left.ToString + "," + Me.Top.ToString)
             WriteSetting("ClockSize", Me.Width.ToString + "," + Me.Height.ToString)
             WriteSetting("ClockTransp", Me.TrackBar1.Value.ToString)
             WriteSetting("ClockState", ClickState.ToString)
         End If
-
     End Sub
 
 We read these settings in again upon form load
@@ -97,7 +95,6 @@ We read these settings in again upon form load
         Dim ClockSize As String
         Dim ClockTrans As String
         Dim ClockState As String
-
         ClockLocation = ReadSetting("ClockLocation", "")
         ClockSize = ReadSetting("ClockSize", "")
         ClockTrans = ReadSetting("ClockTransp", "")
