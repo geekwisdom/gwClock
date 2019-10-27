@@ -8,7 +8,7 @@ In this sample I will be demonstrating some of the idea of creating an applicati
 
 ## Background
 
-Recently a colleague was playing around with transparency in VB.NET, and he happened to show me his transparent clock application, which brought me back to the old days of [Windows 'desktop gadgets'](https://en.wikipedia.org/wiki/Microsoft_Gadgets). What I like most about his demonstration was the use of the matrix background, which was just too cool for [my geeky self to pass](https://www.youtube.com/watch?v=MeabQjpkMFY) up.
+Recently a colleague was playing around with transparency in VB.NET, and he happened to show me his transparent clock application, which brought me back to the old days of [Windows 'desktop gadgets'](https://en.wikipedia.org/wiki/Microsoft_Gadgets). What I like most about his demonstration was the use of the matrix background, which was just too cool for [my geeky self to pass](https://www.youtube.com/watch?v=MeabQjpkMFY) up. Special thanks to Chris Wilby, for the inspiration and a copy of his initial code.
 
 ## Design
 
