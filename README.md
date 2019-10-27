@@ -119,6 +119,6 @@ We read these settings in again upon form load
         TrackBar1.Refresh()
     End Sub
 
-So there you have it. Your very own transparent clock. If you are interested in only the executable you can find it here:
+So there you have it. You can use these same techniques to create your own transparent gadgets for your desktop. If you are interested in only the executable you can find it here:
 
 Enjoy !
